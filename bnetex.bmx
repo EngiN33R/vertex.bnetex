@@ -91,6 +91,7 @@ Extern "OS"
 	
 	?Win32
 	Const FIONREAD:Int=$4004667F
+	Const SOL_SOCKET:Int = $FFFF
 	?win32 and ptr32
 	Const INVALID_SOCKET:Int = ~0
 	Function ioctl_:Int( socket:Int,opt:Int,buf:Byte Ptr )="int ioctlsocket(SOCKET ,long ,u_long *)!"
@@ -104,6 +105,10 @@ Extern "OS"
 	Function ioctl_:Int( socket:Int,opt:Int,buf:Byte Ptr )="ioctl"
 	?Linux And Not android
 	Const FIONREAD:Int=$541b
+	Const SOL_SOCKET:Int = 1
+	Const SO_BROADCAST:Short = 6
+	Const SO_SNDBUF:Short = 7
+	Const SO_RCVBUF:Short = 8
 	Function ioctl_:Int( socket:Int,opt:Int,buf:Byte Ptr )="ioctl"
 	?android
 	Const FIONREAD:Int=$541b
