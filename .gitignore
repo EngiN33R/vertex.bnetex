@@ -1,0 +1,8 @@
+.bmx/
+doc/
+*.a
+!libiphlpapi.a
+*.i
+*.i2
+
+*.bak
